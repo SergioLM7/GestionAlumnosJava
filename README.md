@@ -1,4 +1,4 @@
-# Gestión de Alunos - Java
+# Gestión de Alumnos - Java
 
 Este proyecto es un programa en **Java** diseñado para la **gestión académica de una clase** mediante una estructura de datos dinámica (Lista), sin imponer un límite máximo en el número de alumnos.
 
