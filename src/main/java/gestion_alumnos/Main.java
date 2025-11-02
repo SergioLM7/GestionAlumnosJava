@@ -60,7 +60,13 @@ public class Main {
                         System.out.println("El DNI introducido no corresponde con ningún alumno registrado.");
                     }
                 }
-                case 4 -> curso.showEveryAlumno();
+                case 4 -> {
+                    if(curso.getListaAlumnos().isEmpty()) {
+                        System.out.println("No hay alumnos registrados para mostrar.");
+                    } else {
+                        curso.showEveryAlumno();
+                    }
+                }
                 case 5 -> {
                     System.out.println("Introduce el DNI del alumno a modificar: ");
                     DNI = sc.nextLine();
@@ -79,7 +85,13 @@ public class Main {
                         System.out.println("El DNI introducido no corresponde con ningún alumno registrado.");
                     }
                 }
-                case 6 -> System.out.println(curso.showAlumnosByNota());
+                case 6 -> {
+                     try {
+                         System.out.println(curso.showAlumnosByNota());
+                     } catch (ArithmeticException e) {
+                         System.out.println("No hay alumnos registrados en el sistema para mostrar.");
+                     }
+                }
                 case 7 -> {
                     System.out.println("Gracias por utilizar nuestro gestor de alumnos. Hasta pronto");
                     System.exit(0);
