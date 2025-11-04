@@ -3,6 +3,7 @@ package gestion_alumnos;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Scanner;
 
 public class CursoImpl implements ICurso {
 
@@ -34,7 +35,7 @@ public class CursoImpl implements ICurso {
     }
 
     @Override
-    public String addAlumno(Alumno alumno) {
+    public String addAlumnoToList(Alumno alumno) {
         if(!isInTheList(alumno.getDNI())) {
             alumno.setNota_letra(notaNumericaALetra(alumno.getNota_numerica()));
             listaAlumnos.add(alumno);
@@ -42,6 +43,22 @@ public class CursoImpl implements ICurso {
         } else {
             return "Este alumno ya está registrado";
         }
+    }
+
+    @Override
+    public void createAlumno(Scanner sc) {
+        Alumno alumno = new Alumno();
+        System.out.println("Introduce un nombre: ");
+        alumno.setNombre(sc.nextLine());
+        System.out.println("Introduce los apellidos: ");
+        alumno.setApellidos(sc.nextLine());
+        System.out.println("Introduce un DNI: ");
+        alumno.setDNI(sc.nextLine());
+        System.out.println("Introduce una nota numérica: ");
+        alumno.setNota_numerica(sc.nextInt());
+        String respuesta = addAlumnoToList(alumno);
+        System.out.println(respuesta);
+
     }
 
     @Override

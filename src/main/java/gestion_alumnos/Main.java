@@ -21,19 +21,7 @@ public class Main {
             sc.nextLine();
 
             switch(select) {
-                case 1 -> {
-                    Alumno alumno = new Alumno();
-                    System.out.println("Introduce un nombre: ");
-                    alumno.setNombre(sc.nextLine());
-                    System.out.println("Introduce los apellidos: ");
-                    alumno.setApellidos(sc.nextLine());
-                    System.out.println("Introduce un DNI: ");
-                    alumno.setDNI(sc.nextLine());
-                    System.out.println("Introduce un nota númerica: ");
-                    alumno.setNota_numerica(sc.nextInt());
-                    String respuesta1 = curso.addAlumno(alumno);
-                    System.out.println(respuesta1);
-                }
+                case 1 -> curso.createAlumno(sc);
                 case 2 -> {
                     System.out.println("Introduce el DNI del alumno a borrar: ");
                     respuesta = curso.deleteAlumno(sc.nextLine());
