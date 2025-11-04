@@ -25,7 +25,7 @@ public class CursoImpl implements ICurso {
         boolean isInTheList = false;
 
         for(Alumno al : listaAlumnos) {
-            if(al.DNI.equals(dni)) {
+            if(al.getDNI().equals(dni)) {
                 isInTheList = true;
                 break;
             }
@@ -35,8 +35,8 @@ public class CursoImpl implements ICurso {
 
     @Override
     public String addAlumno(Alumno alumno) {
-        if(!isInTheList(alumno.DNI)) {
-            alumno.setNota_letra(notaNumericaALetra(alumno.nota_numerica));
+        if(!isInTheList(alumno.getDNI())) {
+            alumno.setNota_letra(notaNumericaALetra(alumno.getNota_numerica()));
             listaAlumnos.add(alumno);
             return "Alumno añadido con éxito";
         } else {
@@ -48,7 +48,7 @@ public class CursoImpl implements ICurso {
     public String deleteAlumno(String DNI) {
         if(isInTheList(DNI)) {
             for (Alumno al : listaAlumnos) {
-                if (al.DNI.equals(DNI)) {
+                if (al.getDNI().equals(DNI)) {
                     listaAlumnos.remove(al);
                     return "Alumno eliminado con éxito";
                 }
@@ -77,7 +77,7 @@ public class CursoImpl implements ICurso {
                 }
                 case 3 -> {
                     alumnoToChange.setNota_numerica(Integer.parseInt(newValue));
-                    alumnoToChange.setNota_letra(notaNumericaALetra(alumnoToChange.nota_numerica));
+                    alumnoToChange.setNota_letra(notaNumericaALetra(alumnoToChange.getNota_numerica()));
                     return "Alumno " + alumnoToChange.getDNI() + " modificado con éxito";
                 }
                 default -> {
@@ -100,7 +100,7 @@ public class CursoImpl implements ICurso {
     public String changeNota(String DNI, int nota) {
         if(isInTheList(DNI)) {
             for (Alumno al : listaAlumnos) {
-                if (al.DNI.equals(DNI)) {
+                if (al.getDNI().equals(DNI)) {
                     al.setNota_numerica(nota);
                     al.setNota_letra(notaNumericaALetra(nota));
                     return "Nota modificada con éxito";
@@ -141,7 +141,7 @@ public class CursoImpl implements ICurso {
 
         for(Alumno alumno : listaAlumnos) {
 
-            switch(alumno.nota_letra) {
+            switch(alumno.getNota_letra()) {
                 case "SUS" -> suspensos.add(alumno);
                 case "AP" -> aprobados.add(alumno);
                 case "NOT" -> notables.add(alumno);

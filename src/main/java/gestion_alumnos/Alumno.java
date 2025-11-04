@@ -2,11 +2,11 @@ package gestion_alumnos;
 
 public class Alumno {
 
-    String nombre;
-    String apellidos;
-    String DNI;
-    int nota_numerica;
-    String nota_letra;
+    private String nombre;
+    private String apellidos;
+    private String DNI;
+    private int nota_numerica;
+    private String nota_letra;
 
     public Alumno() {
     }
